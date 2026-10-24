@@ -5,13 +5,12 @@ export default [
   {
     files: ['app.js'],
 
-    ...js.configs.recommended,
-
     languageOptions: {
       globals: globals.browser,
     },
 
     rules: {
+      ...js.configs.recommended.rules,
       'no-var': 'error',
       'prefer-const': 'error',
       'no-console': 'error',
