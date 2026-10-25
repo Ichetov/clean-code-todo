@@ -31,11 +31,7 @@ const createNewTaskElement = function (taskString) {
   deleteButtonImg.src = './remove.svg';
   deleteButton.appendChild(deleteButtonImg);
 
-  listItem.appendChild(checkBox);
-  listItem.appendChild(label);
-  listItem.appendChild(editInput);
-  listItem.appendChild(editButton);
-  listItem.appendChild(deleteButton);
+  listItem.append(checkBox, label, editInput, editButton, deleteButton);
   return listItem;
 };
 
@@ -59,12 +55,10 @@ const editTask = function () {
 
   if (isEditMode) {
     taskLabel.innerText = taskEditInput.value;
-    editButton.innerText = 'Edit';
   } else {
     taskEditInput.value = taskLabel.innerText;
-    editButton.innerText = 'Save';
   }
-
+  editButton.innerText = isEditMode ? 'Edit' : 'Save';
   listItem.classList.toggle('editMode');
 };
 
